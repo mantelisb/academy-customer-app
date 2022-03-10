@@ -19,6 +19,12 @@ repositories {
 dependencies {
 	implementation enforcedPlatform('org.springframework.cloud:spring-cloud-dependencies:2021.0.1')
 
+	compileOnly 'org.projectlombok:lombok:1.18.22'
+	annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+	testCompileOnly 'org.projectlombok:lombok:1.18.22'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
+
 	//spring boot dependenices
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'

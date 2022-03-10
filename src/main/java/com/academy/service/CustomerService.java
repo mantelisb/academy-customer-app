@@ -30,19 +30,18 @@ public class CustomerService {
         String lastName = capitalizeFirstLetter(customer.getLastName());
         String personalNumber = formatPersonalNumber(customer.getPersonalNumber());
 
-        Customer.Builder customerBuilder = new Customer.Builder(
+        Customer.CustomerBuilder customerBuilder = Customer.builder(
                 firstName,
                 lastName,
                 personalNumber);
 
-
         customerBuilder
-                .withAge(customer.getAge())
-                .withCity(customer.getCity())
-                .withCountryCode(customer.getCountryCode())
-                .withMiddleName(customer.getMiddleName());
+                .age(customer.getAge())
+                .city(customer.getCity())
+                .countryCode(customer.getCountryCode())
+                .middleName(customer.getMiddleName());
 
-        return customerBuilder.build();
+        return null;
     }
 
     private String formatPersonalNumber(String personalNumber) {
