@@ -3,13 +3,14 @@ package com.academy.service;
 import com.academy.entity.Customer;
 import com.academy.repository.CustomerRepository;
 import com.academy.repository.MemoryCustomerRepository;
+import com.academy.validation.CustomerValidator;
 
 import java.util.List;
 
 public class CustomerService {
 
     private CustomerRepository repository = new MemoryCustomerRepository();
-    private Validator validator = new Validator();
+    private CustomerValidator validator = new CustomerValidator();
 
 
     public List<Customer> findAll() {

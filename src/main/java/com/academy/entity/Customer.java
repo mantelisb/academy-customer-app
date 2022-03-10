@@ -80,7 +80,7 @@ public class Customer {
     private String gender;
     private String maritalStatus;
 
-    public Customer() {
+    private Customer() {
     }
 
     public String getId() {
