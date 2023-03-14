@@ -1,7 +1,7 @@
 package com.academy.controller;
 
 import com.academy.entity.Customer;
-import com.academy.repository.CustomerRepository;
+import com.academy.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,20 +12,20 @@ import java.util.List;
 public class MainController {
 
     @Autowired
-    private CustomerRepository customerRepository;
+    private CustomerService customerService;
 
     @RequestMapping("/customer/all")
     public List<Customer> fetchCustomers() {
-        return customerRepository.findAll();
+        return customerService.findAll();
     }
 
     @PostMapping("/customer/insert")
     public void insertCustomer(@RequestBody Customer customer) {
-        customerRepository.insert(customer);
+        customerService.insert(customer);
     }
 
     @DeleteMapping("/customer/delete/{customerId}")
     public void deleteCustomer(@PathVariable String customerId) {
-        customerRepository.deleteById(customerId);
+        customerService.deleteById(customerId);
     }
 }
