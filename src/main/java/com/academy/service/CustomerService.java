@@ -34,7 +34,7 @@ public class CustomerService {
     }
 
     private String formatPersonalNumber(Customer customer) {
-        if (customer.getPersonalNumber().length() < 4) {
+        if (customer.getPersonalNumber().length() < 5) {
             return customer.getPersonalNumber();
         } else {
             return customer.getPersonalNumber().substring(0, 4) + "-" + customer.getPersonalNumber().substring(4);
