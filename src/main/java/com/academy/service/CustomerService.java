@@ -23,11 +23,16 @@ public class CustomerService {
     public void insert(Customer customer) {
         validator.validate(customer);
 
-        customer.setFirstName(capitalizeFirstLetter(customer.getFirstName()));
-        customer.setLastName(capitalizeFirstLetter(customer.getLastName()));
-        customer.setPersonalNumber(formatPersonalNumber(customer));
+        Customer formattedCustomer = new Customer.Builder(
+                capitalizeFirstLetter(customer.getFirstName()),
+                capitalizeFirstLetter(customer.getLastName()),
+                formatPersonalNumber(customer))
+             .withAge(customer.getAge())
+             .withCountryCode(customer.getCountryCode())
+             .withMartialStatus(customer.getMaritalStatus())
+             .withMiddleName(customer.getMiddleName()).build();
 
-        customerRepository.insert(customer);
+        customerRepository.insert(formattedCustomer);
     }
 
     private String capitalizeFirstLetter(String string) {
