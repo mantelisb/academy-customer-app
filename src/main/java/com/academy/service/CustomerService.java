@@ -12,12 +12,17 @@ public class CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
+    @Autowired
+    private Validator validator;
+
 
     public List<Customer> findAll() {
         return customerRepository.findAll();
     }
 
     public void insert(Customer customer) {
+        validator.validate(customer);
+
         customer.setFirstName(capitalizeFirstLetter(customer.getFirstName()));
         customer.setLastName(capitalizeFirstLetter(customer.getLastName()));
         customer.setPersonalNumber(formatPersonalNumber(customer));
