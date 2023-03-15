@@ -13,7 +13,7 @@ public class CustomerService {
     private CustomerRepository customerRepository;
 
     @Autowired
-    private Validator validator;
+    private CustomerValidator validator;
 
 
     public List<Customer> findAll() {
