@@ -21,18 +21,18 @@ public class CustomerService {
     }
 
     public void insert(Customer customer) {
-        validator.validate(customer);
+//        validator.validate(customer);
+//
+//        Customer formattedCustomer = new Customer.Builder(
+//                capitalizeFirstLetter(customer.getFirstName()),
+//                capitalizeFirstLetter(customer.getLastName()),
+//                formatPersonalNumber(customer))
+//             .withAge(customer.getAge())
+//             .withCountryCode(customer.getCountryCode())
+//             .withMartialStatus(customer.getMaritalStatus())
+//             .withMiddleName(customer.getMiddleName()).build();
 
-        Customer formattedCustomer = new Customer.Builder(
-                capitalizeFirstLetter(customer.getFirstName()),
-                capitalizeFirstLetter(customer.getLastName()),
-                formatPersonalNumber(customer))
-             .withAge(customer.getAge())
-             .withCountryCode(customer.getCountryCode())
-             .withMartialStatus(customer.getMaritalStatus())
-             .withMiddleName(customer.getMiddleName()).build();
-
-        customerRepository.insert(formattedCustomer);
+        customerRepository.insert(customer);
     }
 
     private String capitalizeFirstLetter(String string) {

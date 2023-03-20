@@ -14,7 +14,7 @@ public class MainController {
     @Autowired
     private CustomerService customerService;
 
-    @RequestMapping("/customer/all")
+    @GetMapping("/customer/all")
     public List<Customer> fetchCustomers() {
         return customerService.findAll();
     }
